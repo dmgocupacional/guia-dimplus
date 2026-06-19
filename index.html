@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>DIM+ · Guia Interno de Benefícios — Plus & Sagrado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* ═══ BLOCO: TOKENS ═══ */
+:root{
+  --ink:#0C1A1C; --ink2:#3A4B4D; --ink3:#6E7E7F;
+  --paper:#F5F3EC; --paper2:#FBFAF5; --line:#D9D5C8;
+  --teal:#0E3A40; --teal2:#13525A; --teal3:#1C6E76;
+  --green:#0FA968; --green2:#13C078; --mint:#E4F3EC;
+  --gold:#B8893B; --gold2:#D4A857; --goldsoft:#F2E6CC;
+  --plus:#0FA968; --sag:#B8893B;
+  --font:'Sora','SF Pro Display',system-ui,sans-serif;
+  --serif:'Fraunces',Georgia,serif;
+  --body:'Inter',system-ui,sans-serif;
+  --mono:'JetBrains Mono','Fira Code',monospace;
+  --tr:all .2s ease; --tr-slow:all .45s cubic-bezier(.4,0,.2,1);
+  --r:10px; --r-lg:16px; --r-xl:24px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:#3a3f3d;color:var(--ink);
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;
+  padding:0 0 60px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ═══ BLOCO: BOTÃO PDF (somente tela) ═══ */
+.printbtn{position:fixed;top:16px;right:16px;z-index:50;
+  font-family:var(--font);font-weight:700;font-size:12.5px;color:#06231f;
+  background:var(--green2);border:none;padding:9px 16px;border-radius:99px;cursor:pointer;
+  box-shadow:0 8px 24px -6px rgba(19,192,120,.6);transition:var(--tr)}
+.printbtn:hover{transform:translateY(-1px);box-shadow:0 12px 28px -6px rgba(19,192,120,.7)}
+.printbtn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+
+/* ═══ BLOCO: PALCO + PÁGINA A4 (escala p/ caber na tela) ═══ */
+.stage{width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.page{display:block;flex-shrink:0;width:210mm;height:297mm;background:var(--paper2);
+  position:relative;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.55);
+  transform-origin:center center;will-change:transform}
+
+/* utilidades compartilhadas */
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-family:var(--font);font-weight:600;font-size:10.5px;letter-spacing:.22em;
+  text-transform:uppercase}
+.plus-c{color:var(--plus)} .sag-c{color:var(--sag)}
+
+/* ═══ BLOCO: LAYOUT 5 — DASHBOARD + CARTÕES ═══ */
+#L5{background:#07171A;color:#EAF4F2;padding:0;font-family:var(--body);display:flex;flex-direction:column}
+#L5:before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:.04;mix-blend-mode:screen}
+#L5:after{content:'';position:absolute;top:-12%;left:50%;transform:translateX(-50%);width:70%;height:46%;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse,rgba(19,192,120,.16),transparent 68%);filter:blur(10px)}
+#L5 .l5-in{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;padding:13mm 14mm 0}
+#L5 .l5-head{display:flex;justify-content:space-between;align-items:flex-start}
+#L5 .l5-head .eyebrow{color:#5f8a82;margin-bottom:5px}
+#L5 .l5-logo{font-family:var(--font);font-weight:800;font-size:30px;letter-spacing:-.03em;color:#fff}
+#L5 .l5-logo i{color:var(--green2);font-style:normal}
+#L5 .l5-head .sub{font-family:var(--font);font-weight:600;font-size:12px;color:#9db8b2;text-align:right}
+#L5 .l5-head .sub small{font-family:var(--mono);font-weight:500;font-size:9.5px;color:#5f8a82;display:block}
+/* KPIs */
+#L5 .l5-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}
+#L5 .kpi{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);padding:11px 12px;
+  opacity:0;transform:translateY(14px);animation:cardReveal .5s cubic-bezier(.4,0,.2,1) forwards}
+#L5 .kpi:nth-child(1){animation-delay:.05s}
+#L5 .kpi:nth-child(2){animation-delay:.11s}
+#L5 .kpi:nth-child(3){animation-delay:.17s}
+#L5 .kpi:nth-child(4){animation-delay:.23s}
+#L5 .kpi .v{font-family:var(--font);font-weight:800;font-size:30px;letter-spacing:-.03em;line-height:1;color:var(--green2)}
+#L5 .kpi .v small{font-size:15px;font-weight:700}
+#L5 .kpi.gold .v{color:var(--gold2)}
+#L5 .kpi .lab{font-family:var(--body);font-size:9px;color:#8aa8a2;margin-top:6px;line-height:1.3}
+/* Cartões herói */
+#L5 .l5-cards{display:flex;gap:16px;justify-content:center;align-items:center;padding:16px 0 4px;perspective:1300px;position:relative}
+#L5 .l5-cards:before{content:'';position:absolute;z-index:0;left:50%;top:50%;
+  width:230px;height:230px;transform:translate(calc(-50% - 85px),-46%);border-radius:50%;
+  background:radial-gradient(circle,rgba(19,192,120,.55),rgba(19,192,120,.12) 55%,transparent 72%);
+  filter:blur(34px);pointer-events:none}
+#L5 .l5-cards:after{content:'';position:absolute;z-index:0;left:50%;top:50%;
+  width:215px;height:215px;transform:translate(calc(-50% + 85px),-46%);border-radius:50%;
+  background:radial-gradient(circle,rgba(212,168,87,.5),rgba(212,168,87,.1) 55%,transparent 72%);
+  filter:blur(36px);pointer-events:none}
+#L5 .l5-cards .card{z-index:1}
+#L5 .card{width:146px;height:208px;border-radius:16px;padding:14px 14px;position:relative;
+  display:flex;flex-direction:column;flex-shrink:0;box-shadow:0 22px 44px -16px rgba(0,0,0,.7);overflow:hidden}
+#L5 .card.plus{background:linear-gradient(155deg,var(--green),#0A7A4B 55%,#085C39);transform:rotate(-6deg) translateY(4px)}
+#L5 .card.sag{background:linear-gradient(155deg,#1A1A1C,#262017 60%,#0E0E0F);
+  box-shadow:0 22px 44px -16px rgba(0,0,0,.78),inset 0 0 0 1px rgba(212,168,87,.35);transform:rotate(5deg)}
+#L5 .card .shine{position:absolute;inset:0;background:linear-gradient(125deg,transparent 38%,rgba(255,255,255,.22) 48%,transparent 58%);pointer-events:none}
+#L5 .card .brand{font-family:var(--font);font-weight:800;font-size:18px;letter-spacing:-.02em;color:#fff}
+#L5 .card.plus .brand i{color:#063;font-style:normal} #L5 .card.sag .brand i{color:var(--gold2);font-style:normal}
+#L5 .card .kind{font-family:var(--font);font-weight:600;font-size:8px;letter-spacing:.15em;text-transform:uppercase;margin-top:2px}
+#L5 .card.plus .kind{color:rgba(255,255,255,.85)} #L5 .card.sag .kind{color:var(--gold2)}
+#L5 .card .chip{width:30px;height:22px;border-radius:5px;margin-top:11px;
+  background:linear-gradient(135deg,#f5e6b8,#c9a85a);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+#L5 .card .chip:before{content:'';display:block;margin:10px 5px 0;height:1px;background:rgba(0,0,0,.25);
+  box-shadow:0 3px 0 rgba(0,0,0,.18),0 -3px 0 rgba(0,0,0,.18)}
+#L5 .card .pr{margin-top:auto;font-family:var(--font);font-weight:800;font-size:23px;letter-spacing:-.03em;color:#fff}
+#L5 .card .pr small{font-family:var(--body);font-size:8.5px;font-weight:500;display:block;letter-spacing:0;opacity:.85}
+#L5 .card .num{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;color:rgba(255,255,255,.7);margin-top:5px}
+/* Benefícios glass */
+#L5 .l5-bens{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+#L5 .bcol{background:linear-gradient(165deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
+  border:1px solid rgba(255,255,255,.09);border-radius:var(--r-xl);padding:14px 16px;position:relative;overflow:hidden}
+#L5 .bcol.plus{box-shadow:inset 0 0 0 1px rgba(19,192,120,.22),0 0 34px -18px rgba(19,192,120,.5)}
+#L5 .bcol.sag{box-shadow:inset 0 0 0 1px rgba(212,168,87,.24),0 0 34px -18px rgba(212,168,87,.5)}
+#L5 .bcol .glow{position:absolute;top:-36px;right:-36px;width:110px;height:110px;border-radius:50%;filter:blur(28px)}
+#L5 .bcol.plus .glow{background:rgba(19,192,120,.3)} #L5 .bcol.sag .glow{background:rgba(212,168,87,.28)}
+#L5 .bcol h3{font-family:var(--font);font-weight:800;font-size:16px;color:#fff;position:relative}
+#L5 .bcol .tag{font-family:var(--font);font-weight:600;font-size:8px;letter-spacing:.13em;text-transform:uppercase;
+  padding:3px 8px;border-radius:99px;display:inline-block;margin-bottom:6px}
+#L5 .bcol.plus .tag{background:rgba(19,192,120,.16);color:var(--green2)}
+#L5 .bcol.sag .tag{background:rgba(212,168,87,.16);color:var(--gold2)}
+#L5 .bcol .who{font-size:9.5px;color:#7f9b95;margin:2px 0 8px;position:relative}
+#L5 .bcol ul{list-style:none;position:relative}
+#L5 .bcol li{font-size:10.5px;line-height:1.4;color:#cfe0dc;padding:4px 0 4px 16px;position:relative;border-top:1px solid rgba(255,255,255,.06)}
+#L5 .bcol li:before{content:'+';position:absolute;left:0;top:3px;font-family:var(--font);font-weight:800;font-size:11px}
+#L5 .bcol.plus li:before{color:var(--green2)} #L5 .bcol.sag li:before{color:var(--gold2)}
+#L5 .bcol li .free{display:block;font-size:9px;color:#7f9b95}
+/* Tabela */
+#L5 .l5-table{margin-top:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-lg);padding:12px 16px}
+#L5 .l5-table h4{font-family:var(--font);font-weight:700;font-size:11px;color:#fff;display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
+#L5 .l5-table h4 span{font-family:var(--body);font-weight:500;font-size:9px;color:#7f9b95}
+#L5 table{width:100%;border-collapse:collapse}
+#L5 th{font-family:var(--font);font-weight:600;font-size:8px;letter-spacing:.07em;text-transform:uppercase;
+  color:#6f8a85;text-align:right;padding:3px 6px;border-bottom:1px solid rgba(255,255,255,.12)}
+#L5 th:first-child{text-align:left}
+#L5 td{font-family:var(--body);font-size:10px;padding:3px 6px;text-align:right;border-bottom:1px solid rgba(255,255,255,.05);color:#9db8b2}
+#L5 td:first-child{text-align:left;color:#dcebe7;font-weight:500}
+#L5 td.dim{font-family:var(--mono);font-weight:700;color:var(--green2)}
+#L5 td.fares{color:#7f9b95;text-decoration:line-through;text-decoration-color:rgba(239,68,68,.5)}
+#L5 tr.grp td{background:rgba(255,255,255,.04)}
+#L5 tr.grp td:first-child{font-family:var(--font);font-weight:700;color:#fff}
+#L5 .econ{font-family:var(--mono);font-weight:700;color:var(--green2);font-size:9.5px}
+#L5 .l5-foot{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;
+  padding:10px 14mm;border-top:1px solid rgba(255,255,255,.08)}
+#L5 .l5-foot .eyebrow{color:#5f8a82;letter-spacing:.12em}
+#L5 .l5-foot b{color:var(--green2);font-family:var(--font);font-weight:700}
+
+/* ═══ BLOCO: KEYFRAMES ═══ */
+@keyframes cardReveal{to{opacity:1;transform:none}}
+@keyframes pageIn{from{opacity:0;transform:scale(.995)}to{opacity:1;transform:none}}
+
+/* ═══ BLOCO: PRINT ═══ */
+@page{size:A4;margin:0}
+@media print{
+  body{background:#fff;padding:0}
+  .printbtn{display:none!important}
+  .stage{padding:0;transform:none!important}
+  .page{display:block!important;box-shadow:none;margin:0;transform:none!important;animation:none}
+  #L5{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+  *{animation:none!important}
+}
+</style>
+</head>
+<body>
+<!-- ═══ BLOCO: SWITCHER ═══ -->
+<button class="printbtn" onclick="window.print()" title="Imprimir / Salvar PDF (A4)">⎙ Salvar PDF</button>
+
+<div class="stage">
+
+<!-- ═══ LAYOUT 5 — DASHBOARD + CARTÕES ═══ -->
+<section class="page active" id="L5" role="tabpanel">
+  <div class="l5-in">
+    <div class="l5-head">
+      <div>
+        <div class="eyebrow">Guia interno de benefícios</div>
+        <div class="l5-logo">DIM<i>+</i></div>
+      </div>
+      <div class="sub">Plus &amp; Sagrado<small>JUN · 2026</small></div>
+    </div>
+
+    <div class="l5-kpis">
+      <div class="kpi"><div class="v"><span class="ct" data-to="50">50</span><small>%</small></div><div class="lab">desconto em exames e consultas · Plus</div></div>
+      <div class="kpi"><div class="v"><span class="ct" data-to="70">70</span><small>%</small></div><div class="lab">desconto em farmácias · Plus</div></div>
+      <div class="kpi"><div class="v">até <span class="ct" data-to="46">46</span><small>%</small></div><div class="lab">economia em Raio-X vs Concorrente</div></div>
+      <div class="kpi gold"><div class="v"><span class="ct" data-to="30">30</span><small>+</small></div><div class="lab">especialidades na rede própria</div></div>
+    </div>
+
+    <div class="l5-cards">
+      <div class="card plus">
+        <div class="shine"></div>
+        <div class="brand">DIM<i>+</i></div>
+        <div class="kind">Plus · Porta de entrada</div>
+        <div class="chip"></div>
+        <div class="pr">R$ 79,90<small>/mês + adesão R$ 29,90</small></div>
+        <div class="num">•••• QUALQUER PESSOA</div>
+      </div>
+      <div class="card sag">
+        <div class="shine"></div>
+        <div class="brand">DIM<i>+</i></div>
+        <div class="kind">Sagrado · Exclusivo</div>
+        <div class="chip"></div>
+        <div class="pr">R$ 349,90<small>/mês · plano anual</small></div>
+        <div class="num">•••• SAGRADA FAMÍLIA</div>
+      </div>
+    </div>
+
+    <div class="l5-bens">
+      <div class="bcol plus"><div class="glow"></div>
+        <span class="tag">Porta de entrada</span>
+        <h3>DIM+ Plus</h3>
+        <div class="who">Para qualquer pessoa — contratação livre</div>
+        <ul>
+          <li>Até <b>50%</b> de desconto em exames e consultas</li>
+          <li>Até <b>70%</b> de desconto em farmácias</li>
+          <li>Clínico geral e pronto atendimento <b>ilimitados</b></li>
+          <li>Sem carência e sem reajuste · até <b>5 dependentes</b></li>
+        </ul>
+      </div>
+      <div class="bcol sag"><div class="glow"></div>
+        <span class="tag">Exclusivo Sagrada Família</span>
+        <h3>DIM+ Sagrado</h3>
+        <div class="who">Só para titulares do plano de saúde Sagrada Família</div>
+        <ul>
+          <li><b>Tudo do DIM+</b> · rede própria, 30+ especialidades</li>
+          <li>Até <b>3 dependentes</b> sem custo adicional</li>
+          <li><b>Exames anuais grátis</b> (só titular)<span class="free">Oftalmologia · Cardiologia + ECG · Bioimpedância</span></li>
+          <li>Sem reajuste (sinistralidade / faixa etária / ANS) · sem carência</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="l5-table">
+      <h4>Comparativo de preços <span>Concorrente × DIMEG × DIM+ · R$ · *vs Concorrente</span></h4>
+      <table>
+        <thead><tr><th>Procedimento</th><th>Concorrente</th><th>DIMEG</th><th>DIM+</th><th>Economia*</th></tr></thead>
+        <tbody>
+          <tr><td>Consulta Ortopedia</td><td class="fares mono">165</td><td class="mono">120</td><td class="dim">100</td><td class="econ">39%</td></tr>
+          <tr><td>Consulta Ginecologia</td><td class="fares mono">200</td><td class="mono">200</td><td class="dim">160</td><td class="econ">20%</td></tr>
+          <tr><td>Consulta Oftalmologia</td><td class="fares mono">140</td><td class="mono">79,90</td><td class="dim">49,90</td><td class="econ">64%</td></tr>
+          <tr><td>Consulta Cardiologia</td><td class="fares mono">200</td><td class="mono">120</td><td class="dim">100</td><td class="econ">50%</td></tr>
+          <tr><td>Consulta Endocrinologia</td><td class="fares mono">250</td><td class="mono">180</td><td class="dim">144</td><td class="econ">42%</td></tr>
+          <tr><td>Consulta Dermatologia</td><td class="fares mono">160</td><td class="mono">120</td><td class="dim">100</td><td class="econ">38%</td></tr>
+          <tr class="grp"><td>Ultrassom</td><td class="fares mono">200</td><td class="mono">130</td><td class="dim">a partir de R$100</td><td class="econ">50%</td></tr>
+          <tr class="grp"><td>Raio-X</td><td class="fares mono">90</td><td class="mono">75</td><td class="dim">a partir de R$40</td><td class="econ">56%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <footer class="l5-foot">
+    <span class="eyebrow">Material de uso interno · não distribuir</span>
+    <span class="eyebrow">*Economia vs Concorrente · <b>DIMEG</b></span>
+  </footer>
+</section>
+
+</div><!-- /stage -->
+
+<!-- ═══ BLOCO: JS — SCALE-TO-FIT + COUNTERS ═══ -->
+<script>
+(function(){
+  'use strict';
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var PAGE_W=794, PAGE_H=1123; // A4 em px a 96dpi
+
+  // ── escala a página para caber na janela ──
+  function scalePage(){
+    var pg=document.querySelector('.page');
+    if(!pg) return;
+    var pad=32;
+    var s=Math.min((window.innerWidth-pad)/PAGE_W,(window.innerHeight-pad)/PAGE_H,1);
+    pg.style.transform='scale('+s+')';
+  }
+  scalePage();
+  window.addEventListener('resize',scalePage);
+
+  // ── contadores animados ──
+  function animateCounters(){
+    if(reduce){document.querySelectorAll('.ct').forEach(function(el){el.textContent=el.dataset.to;});return;}
+    document.querySelectorAll('.ct').forEach(function(el){
+      var to=parseInt(el.dataset.to,10)||0,cur=0,step=Math.max(1,Math.ceil(to/26));
+      el.textContent='0';
+      var t=setInterval(function(){cur=Math.min(cur+step,to);el.textContent=cur;if(cur>=to)clearInterval(t);},34);
+    });
+  }
+  animateCounters();
+})();
+</script>
+</body>
+</html>
