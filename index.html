@@ -2,287 +2,750 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>DIM+ · Guia Interno de Benefícios — Plus & Sagrado</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guia DIM+ Saúde</title>
+<meta name="description" content="DIM+ Saúde: saúde acessível para todos os momentos. Compare particular, convênio, DIM+ e DIM+ Sagrado e simule a economia da sua família.">
+<meta name="theme-color" content="#F1F2F1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 /* ═══ BLOCO: TOKENS ═══ */
 :root{
-  --ink:#0C1A1C; --ink2:#3A4B4D; --ink3:#6E7E7F;
-  --paper:#F5F3EC; --paper2:#FBFAF5; --line:#D9D5C8;
-  --teal:#0E3A40; --teal2:#13525A; --teal3:#1C6E76;
-  --green:#0FA968; --green2:#13C078; --mint:#E4F3EC;
-  --gold:#B8893B; --gold2:#D4A857; --goldsoft:#F2E6CC;
-  --plus:#0FA968; --sag:#B8893B;
-  --font:'Sora','SF Pro Display',system-ui,sans-serif;
-  --serif:'Fraunces',Georgia,serif;
-  --body:'Inter',system-ui,sans-serif;
-  --mono:'JetBrains Mono','Fira Code',monospace;
-  --tr:all .2s ease; --tr-slow:all .45s cubic-bezier(.4,0,.2,1);
-  --r:10px; --r-lg:16px; --r-xl:24px;
+  --bg:#F1F2F1; --navy:#202745; --green:#3EEE92; --sky:#ACD1FF; --gray:#A5A6A5;
+  --navy-70:rgba(32,39,69,.7); --navy-50:rgba(32,39,69,.5); --navy-10:rgba(32,39,69,.08);
+  --glass:rgba(255,255,255,.55); --glass-b:rgba(255,255,255,.75);
+  --green-d:#17b866;
+  --r:28px; --gut:clamp(16px,4vw,48px); --max:1180px;
+  --shadow:0 30px 80px -30px rgba(32,39,69,.28),0 8px 24px -12px rgba(32,39,69,.12);
 }
+/* ── FIM BLOCO ── */
+
+/* ═══ BLOCO: BASE ═══ */
 *{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%}
-body{font-family:var(--body);background:#3a3f3d;color:var(--ink);
-  min-height:100vh;display:flex;flex-direction:column;align-items:center;
-  padding:0 0 60px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--navy);font-family:Nunito,system-ui,sans-serif;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg,canvas{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:90;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.aura{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(60vmax 50vmax at 85% 10%,rgba(172,209,255,.45),transparent 60%),radial-gradient(50vmax 40vmax at 5% 90%,rgba(62,238,146,.22),transparent 60%)}
+main{position:relative;z-index:1}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+section{position:relative;padding:clamp(80px,14vh,160px) 0}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-70)}
+.eyebrow::before{content:"";width:22px;height:3px;border-radius:3px;background:var(--green)}
+.h2{font-size:clamp(2rem,5.4vw,4.2rem);line-height:1.02;font-weight:900;letter-spacing:-.03em;margin:14px 0 18px}
+.h2 em{font-style:normal;background:linear-gradient(100deg,var(--green-d),#5aa8ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(1.02rem,1.6vw,1.25rem);color:var(--navy-70);max-width:640px}
+.glass{background:var(--glass);border:1px solid var(--glass-b);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border-radius:var(--r);box-shadow:var(--shadow)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;font-weight:800;font-size:1.05rem;text-decoration:none;transition:transform .25s,box-shadow .25s}
+.btn-primary{background:var(--navy);color:#fff;box-shadow:0 14px 34px -12px rgba(32,39,69,.6)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 40px -12px rgba(32,39,69,.7)}
+.btn-green{background:var(--green);color:var(--navy);box-shadow:0 14px 40px -12px rgba(62,238,146,.8)}
+.btn-green:hover{transform:translateY(-2px) scale(1.02)}
+.btn .dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
+.reveal{opacity:0;transform:translateY(30px)}
+.no-motion .reveal,.no-js .reveal{opacity:1;transform:none}
+/* ── FIM BLOCO ── */
 
-/* ═══ BLOCO: BOTÃO PDF (somente tela) ═══ */
-.printbtn{position:fixed;top:16px;right:16px;z-index:50;
-  font-family:var(--font);font-weight:700;font-size:12.5px;color:#06231f;
-  background:var(--green2);border:none;padding:9px 16px;border-radius:99px;cursor:pointer;
-  box-shadow:0 8px 24px -6px rgba(19,192,120,.6);transition:var(--tr)}
-.printbtn:hover{transform:translateY(-1px);box-shadow:0 12px 28px -6px rgba(19,192,120,.7)}
-.printbtn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+/* ═══ BLOCO: NAV ═══ */
+.nav{justify-content:center!important;position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:50;width:calc(100% - 32px);max-width:var(--max);display:flex;align-items:center;justify-content:space-between;padding:10px 12px 10px 20px;border-radius:999px}
+.nav .logo{height:52px;width:auto;margin:-8px 0}
+.nav .btn{padding:10px 18px;font-size:.92rem}
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--green),var(--sky));z-index:60}
+/* ── FIM BLOCO ── */
 
-/* ═══ BLOCO: PALCO + PÁGINA A4 (escala p/ caber na tela) ═══ */
-.stage{width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.page{display:block;flex-shrink:0;width:210mm;height:297mm;background:var(--paper2);
-  position:relative;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.55);
-  transform-origin:center center;will-change:transform}
+/* ═══ BLOCO: HERO ═══ */
+.hero{height:100vh;height:100svh;min-height:560px;padding:0;display:grid;place-items:center;overflow:hidden}
+#hero3d{position:absolute;inset:0;width:100%;height:100%}
+.hero-copy{position:relative;text-align:center;padding:0 var(--gut);pointer-events:none}
+.hero-copy > *{pointer-events:auto}
+.hero-title{font-size:clamp(3.2rem,13vw,10rem);font-weight:900;letter-spacing:-.05em;line-height:.9}
+.hero-title .plus{color:var(--green-d)}
+.hero-tag{font-size:clamp(1.1rem,2.6vw,1.8rem);font-weight:700;color:var(--navy-70);margin:18px 0 28px}
+.chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+.chip{padding:8px 16px;border-radius:999px;font-weight:800;font-size:.85rem;background:rgba(255,255,255,.6);border:1px solid #fff}
+.chip i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;background:var(--green)}
+.chip.sky i{background:#5aa8ff}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:.75rem;font-weight:800;letter-spacing:.2em;color:var(--navy-50)}
+/* ── FIM BLOCO ── */
 
-/* utilidades compartilhadas */
-.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
-.eyebrow{font-family:var(--font);font-weight:600;font-size:10.5px;letter-spacing:.22em;
-  text-transform:uppercase}
-.plus-c{color:var(--plus)} .sag-c{color:var(--sag)}
+/* ═══ BLOCO: DIMIGO ═══ */
+.dimigo-sec{display:flex;align-items:center}
+.dimigo-grid{display:grid;grid-template-columns:minmax(180px,340px) 1fr;gap:clamp(24px,5vw,72px);align-items:center}
+.dimigo{width:100%;height:auto;filter:drop-shadow(0 30px 40px rgba(32,39,69,.18))}
+.dimigo .eye{transform-origin:center;transform-box:fill-box}
+.bubble{position:relative;padding:clamp(24px,4vw,44px);font-size:clamp(1.4rem,3.4vw,2.6rem);font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.bubble::before{content:"";position:absolute;left:-14px;top:50%;width:28px;height:28px;background:rgba(255,255,255,.7);border-left:1px solid #fff;border-bottom:1px solid #fff;transform:translateY(-50%) rotate(45deg)}
+.bubble .who{display:block;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green-d);margin-bottom:10px}
+.bubble .word{display:inline-block;opacity:.12}
+/* ── FIM BLOCO ── */
 
-/* ═══ BLOCO: LAYOUT 5 — DASHBOARD + CARTÕES ═══ */
-#L5{background:#07171A;color:#EAF4F2;padding:0;font-family:var(--body);display:flex;flex-direction:column}
-#L5:before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  opacity:.04;mix-blend-mode:screen}
-#L5:after{content:'';position:absolute;top:-12%;left:50%;transform:translateX(-50%);width:70%;height:46%;z-index:0;pointer-events:none;
-  background:radial-gradient(ellipse,rgba(19,192,120,.16),transparent 68%);filter:blur(10px)}
-#L5 .l5-in{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;padding:13mm 14mm 0}
-#L5 .l5-head{display:flex;justify-content:space-between;align-items:flex-start}
-#L5 .l5-head .eyebrow{color:#5f8a82;margin-bottom:5px}
-#L5 .l5-logo{font-family:var(--font);font-weight:800;font-size:30px;letter-spacing:-.03em;color:#fff}
-#L5 .l5-logo i{color:var(--green2);font-style:normal}
-#L5 .l5-head .sub{font-family:var(--font);font-weight:600;font-size:12px;color:#9db8b2;text-align:right}
-#L5 .l5-head .sub small{font-family:var(--mono);font-weight:500;font-size:9.5px;color:#5f8a82;display:block}
-/* KPIs */
-#L5 .l5-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}
-#L5 .kpi{background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
-  border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);padding:11px 12px;
-  opacity:0;transform:translateY(14px);animation:cardReveal .5s cubic-bezier(.4,0,.2,1) forwards}
-#L5 .kpi:nth-child(1){animation-delay:.05s}
-#L5 .kpi:nth-child(2){animation-delay:.11s}
-#L5 .kpi:nth-child(3){animation-delay:.17s}
-#L5 .kpi:nth-child(4){animation-delay:.23s}
-#L5 .kpi .v{font-family:var(--font);font-weight:800;font-size:30px;letter-spacing:-.03em;line-height:1;color:var(--green2)}
-#L5 .kpi .v small{font-size:15px;font-weight:700}
-#L5 .kpi.gold .v{color:var(--gold2)}
-#L5 .kpi .lab{font-family:var(--body);font-size:9px;color:#8aa8a2;margin-top:6px;line-height:1.3}
-/* Cartões herói */
-#L5 .l5-cards{display:flex;gap:16px;justify-content:center;align-items:center;padding:16px 0 4px;perspective:1300px;position:relative}
-#L5 .l5-cards:before{content:'';position:absolute;z-index:0;left:50%;top:50%;
-  width:230px;height:230px;transform:translate(calc(-50% - 85px),-46%);border-radius:50%;
-  background:radial-gradient(circle,rgba(19,192,120,.55),rgba(19,192,120,.12) 55%,transparent 72%);
-  filter:blur(34px);pointer-events:none}
-#L5 .l5-cards:after{content:'';position:absolute;z-index:0;left:50%;top:50%;
-  width:215px;height:215px;transform:translate(calc(-50% + 85px),-46%);border-radius:50%;
-  background:radial-gradient(circle,rgba(212,168,87,.5),rgba(212,168,87,.1) 55%,transparent 72%);
-  filter:blur(36px);pointer-events:none}
-#L5 .l5-cards .card{z-index:1}
-#L5 .card{width:146px;height:208px;border-radius:16px;padding:14px 14px;position:relative;
-  display:flex;flex-direction:column;flex-shrink:0;box-shadow:0 22px 44px -16px rgba(0,0,0,.7);overflow:hidden}
-#L5 .card.plus{background:linear-gradient(155deg,var(--green),#0A7A4B 55%,#085C39);transform:rotate(-6deg) translateY(4px)}
-#L5 .card.sag{background:linear-gradient(155deg,#1A1A1C,#262017 60%,#0E0E0F);
-  box-shadow:0 22px 44px -16px rgba(0,0,0,.78),inset 0 0 0 1px rgba(212,168,87,.35);transform:rotate(5deg)}
-#L5 .card .shine{position:absolute;inset:0;background:linear-gradient(125deg,transparent 38%,rgba(255,255,255,.22) 48%,transparent 58%);pointer-events:none}
-#L5 .card .brand{font-family:var(--font);font-weight:800;font-size:18px;letter-spacing:-.02em;color:#fff}
-#L5 .card.plus .brand i{color:#063;font-style:normal} #L5 .card.sag .brand i{color:var(--gold2);font-style:normal}
-#L5 .card .kind{font-family:var(--font);font-weight:600;font-size:8px;letter-spacing:.15em;text-transform:uppercase;margin-top:2px}
-#L5 .card.plus .kind{color:rgba(255,255,255,.85)} #L5 .card.sag .kind{color:var(--gold2)}
-#L5 .card .chip{width:30px;height:22px;border-radius:5px;margin-top:11px;
-  background:linear-gradient(135deg,#f5e6b8,#c9a85a);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
-#L5 .card .chip:before{content:'';display:block;margin:10px 5px 0;height:1px;background:rgba(0,0,0,.25);
-  box-shadow:0 3px 0 rgba(0,0,0,.18),0 -3px 0 rgba(0,0,0,.18)}
-#L5 .card .pr{margin-top:auto;font-family:var(--font);font-weight:800;font-size:23px;letter-spacing:-.03em;color:#fff}
-#L5 .card .pr small{font-family:var(--body);font-size:8.5px;font-weight:500;display:block;letter-spacing:0;opacity:.85}
-#L5 .card .num{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;color:rgba(255,255,255,.7);margin-top:5px}
-/* Benefícios glass */
-#L5 .l5-bens{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
-#L5 .bcol{background:linear-gradient(165deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
-  border:1px solid rgba(255,255,255,.09);border-radius:var(--r-xl);padding:14px 16px;position:relative;overflow:hidden}
-#L5 .bcol.plus{box-shadow:inset 0 0 0 1px rgba(19,192,120,.22),0 0 34px -18px rgba(19,192,120,.5)}
-#L5 .bcol.sag{box-shadow:inset 0 0 0 1px rgba(212,168,87,.24),0 0 34px -18px rgba(212,168,87,.5)}
-#L5 .bcol .glow{position:absolute;top:-36px;right:-36px;width:110px;height:110px;border-radius:50%;filter:blur(28px)}
-#L5 .bcol.plus .glow{background:rgba(19,192,120,.3)} #L5 .bcol.sag .glow{background:rgba(212,168,87,.28)}
-#L5 .bcol h3{font-family:var(--font);font-weight:800;font-size:16px;color:#fff;position:relative}
-#L5 .bcol .tag{font-family:var(--font);font-weight:600;font-size:8px;letter-spacing:.13em;text-transform:uppercase;
-  padding:3px 8px;border-radius:99px;display:inline-block;margin-bottom:6px}
-#L5 .bcol.plus .tag{background:rgba(19,192,120,.16);color:var(--green2)}
-#L5 .bcol.sag .tag{background:rgba(212,168,87,.16);color:var(--gold2)}
-#L5 .bcol .who{font-size:9.5px;color:#7f9b95;margin:2px 0 8px;position:relative}
-#L5 .bcol ul{list-style:none;position:relative}
-#L5 .bcol li{font-size:10.5px;line-height:1.4;color:#cfe0dc;padding:4px 0 4px 16px;position:relative;border-top:1px solid rgba(255,255,255,.06)}
-#L5 .bcol li:before{content:'+';position:absolute;left:0;top:3px;font-family:var(--font);font-weight:800;font-size:11px}
-#L5 .bcol.plus li:before{color:var(--green2)} #L5 .bcol.sag li:before{color:var(--gold2)}
-#L5 .bcol li .free{display:block;font-size:9px;color:#7f9b95}
-/* Tabela */
-#L5 .l5-table{margin-top:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:var(--r-lg);padding:12px 16px}
-#L5 .l5-table h4{font-family:var(--font);font-weight:700;font-size:11px;color:#fff;display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px}
-#L5 .l5-table h4 span{font-family:var(--body);font-weight:500;font-size:9px;color:#7f9b95}
-#L5 table{width:100%;border-collapse:collapse}
-#L5 th{font-family:var(--font);font-weight:600;font-size:8px;letter-spacing:.07em;text-transform:uppercase;
-  color:#6f8a85;text-align:right;padding:3px 6px;border-bottom:1px solid rgba(255,255,255,.12)}
-#L5 th:first-child{text-align:left}
-#L5 td{font-family:var(--body);font-size:10px;padding:3px 6px;text-align:right;border-bottom:1px solid rgba(255,255,255,.05);color:#9db8b2}
-#L5 td:first-child{text-align:left;color:#dcebe7;font-weight:500}
-#L5 td.dim{font-family:var(--mono);font-weight:700;color:var(--green2)}
-#L5 td.fares{color:#7f9b95;text-decoration:line-through;text-decoration-color:rgba(239,68,68,.5)}
-#L5 tr.grp td{background:rgba(255,255,255,.04)}
-#L5 tr.grp td:first-child{font-family:var(--font);font-weight:700;color:#fff}
-#L5 .econ{font-family:var(--mono);font-weight:700;color:var(--green2);font-size:9.5px}
-#L5 .l5-foot{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;
-  padding:10px 14mm;border-top:1px solid rgba(255,255,255,.08)}
-#L5 .l5-foot .eyebrow{color:#5f8a82;letter-spacing:.12em}
-#L5 .l5-foot b{color:var(--green2);font-family:var(--font);font-weight:700}
+/* ═══ BLOCO: DE-PARA ═══ */
+.journey{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 40px}
+.journey span{padding:8px 14px;border-radius:12px;background:#fff;font-weight:700;font-size:.9rem;box-shadow:0 4px 14px -8px rgba(32,39,69,.3)}
+.paths{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.path{padding:24px;display:flex;flex-direction:column;gap:12px;transition:transform .4s,box-shadow .4s,border-color .4s;min-width:0}
+.path h3{font-size:1.15rem;font-weight:900}
+.path .tag{font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--navy-50)}
+.path ul{list-style:none;display:flex;flex-direction:column;gap:6px;font-size:.92rem}
+.path li{display:flex;justify-content:space-between;gap:8px;border-bottom:1px dashed var(--navy-10);padding-bottom:6px}
+.path li b{white-space:nowrap}
+.path .total{margin-top:auto;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:900;letter-spacing:-.03em}
+.path .note{font-size:.88rem;color:var(--navy-70);font-weight:600}
+.path.sagrado{border-color:rgba(62,238,146,.4)}
+.path.sagrado.lit{transform:translateY(-8px);border-color:var(--green);box-shadow:0 0 0 2px var(--green),0 30px 80px -20px rgba(62,238,146,.55)}
+.path.sagrado.lit .total{color:var(--green-d)}
+.path.dim .total{color:#2f6fd6}
+.trail{height:6px;border-radius:6px;background:var(--navy-10);overflow:hidden}
+.trail i{display:block;height:100%;width:0;border-radius:6px;background:var(--gray)}
+.path.dim .trail i{background:#5aa8ff}
+.path.sagrado .trail i{background:var(--green)}
+.more{margin-top:28px;padding:6px}
+.more summary{list-style:none;cursor:pointer;padding:16px 20px;font-weight:800;display:flex;justify-content:space-between;align-items:center}
+.more summary::-webkit-details-marker{display:none}
+.more summary::after{content:"+";font-size:1.5rem;color:var(--green-d);transition:transform .3s}
+.more[open] summary::after{transform:rotate(45deg)}
+.tbl-wrap{overflow-x:auto;padding:0 12px 16px}
+.tbl{width:100%;border-collapse:collapse;font-size:.95rem;min-width:420px}
+.tbl th,.tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--navy-10)}
+.tbl th{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--navy-50)}
+.tbl td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;background:rgba(62,238,146,.2);color:#0d7a43;font-weight:800;font-size:.82rem}
+/* ── FIM BLOCO ── */
 
-/* ═══ BLOCO: KEYFRAMES ═══ */
-@keyframes cardReveal{to{opacity:1;transform:none}}
-@keyframes pageIn{from{opacity:0;transform:scale(.995)}to{opacity:1;transform:none}}
+/* ═══ BLOCO: SIMULADOR ═══ */
+.sim{display:grid;grid-template-columns:1fr 1.2fr;gap:20px;margin-top:30px}
+.sim-in{padding:28px;display:flex;flex-direction:column;gap:26px}
+.field label{display:flex;justify-content:space-between;font-weight:800;margin-bottom:10px}
+.field label output{color:var(--green-d);font-size:1.2rem}
+.field .hint{font-size:.82rem;color:var(--navy-50);margin-top:6px}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:8px;border-radius:8px;background:linear-gradient(90deg,var(--green) var(--p,50%),var(--navy-10) var(--p,50%));outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--navy);box-shadow:0 6px 14px -4px rgba(32,39,69,.5)}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--navy)}
+.sim-out{padding:28px;display:flex;flex-direction:column;gap:20px}
+.bar-row .lbl{display:flex;justify-content:space-between;font-weight:800;margin-bottom:8px;gap:8px}
+.bar{height:46px;border-radius:14px;background:var(--navy-10);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:14px;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.bar.part i{background:linear-gradient(90deg,#c9cac9,var(--gray))}
+.bar.dim i{background:linear-gradient(90deg,var(--sky),#5aa8ff)}
+.save{margin-top:6px;padding:22px;border-radius:20px;background:var(--navy);color:#fff}
+.save small{display:block;opacity:.7;font-weight:700}
+.save strong{display:block;font-size:clamp(1.8rem,4.6vw,3rem);font-weight:900;letter-spacing:-.03em;color:var(--green)}
+.save p{font-size:.9rem;opacity:.8}
+.breakdown{font-size:.85rem;color:var(--navy-70)}
+/* ── FIM BLOCO ── */
 
-/* ═══ BLOCO: PRINT ═══ */
-@page{size:A4;margin:0}
-@media print{
-  body{background:#fff;padding:0}
-  .printbtn{display:none!important}
-  .stage{padding:0;transform:none!important}
-  .page{display:block!important;box-shadow:none;margin:0;transform:none!important;animation:none}
-  #L5{print-color-adjust:exact;-webkit-print-color-adjust:exact}
-  *{animation:none!important}
+/* ═══ BLOCO: CARTOES ═══ */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px;perspective:1400px}
+.card3d{position:relative;transform-style:preserve-3d;transition:transform .15s ease-out;will-change:transform}
+.plastic{position:relative;aspect-ratio:1.586;border-radius:24px;padding:24px;color:#fff;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 40px 80px -30px rgba(32,39,69,.55)}
+.plastic.plus{background:linear-gradient(135deg,#202745 0%,#2b3a7a 60%,#3a64c4 100%)}
+.plastic.sag{background:linear-gradient(135deg,#0f5b39 0%,#1aa864 55%,#3EEE92 100%)}
+.plastic .shine{position:absolute;inset:0;background:radial-gradient(circle at var(--mx,30%) var(--my,20%),rgba(255,255,255,.35),transparent 45%);mix-blend-mode:overlay;pointer-events:none}
+.plastic .chipc{width:44px;height:34px;border-radius:8px;background:linear-gradient(135deg,#f6e3a1,#c9a54a);opacity:.9}
+.plastic .pname{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:900;letter-spacing:-.02em}
+.plastic .ptop{display:flex;justify-content:space-between;align-items:flex-start}
+.plastic .plogo{height:26px;width:auto}
+.plastic .pnum{font-family:ui-monospace,monospace;letter-spacing:.2em;opacity:.8;font-size:.9rem}
+.card-info{padding:24px;margin-top:-30px;padding-top:50px;position:relative;z-index:-1;transform:translateZ(-20px)}
+.price{font-size:clamp(2rem,4.4vw,2.8rem);font-weight:900;letter-spacing:-.03em}
+.price small{font-size:1rem;font-weight:700;color:var(--navy-70)}
+.price-sub{font-weight:700;color:var(--navy-70);margin-bottom:14px}
+.feat{list-style:none;display:flex;flex-direction:column;gap:9px}
+.feat li{display:flex;gap:10px;font-weight:600}
+.feat li::before{content:"";flex:0 0 18px;height:18px;margin-top:3px;border-radius:50%;background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='%23202745' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+.excl{display:inline-block;margin-bottom:12px;padding:6px 12px;border-radius:999px;background:rgba(62,238,146,.2);color:#0d7a43;font-weight:800;font-size:.8rem}
+/* ── FIM BLOCO ── */
+
+/* ═══ BLOCO: ECOSSISTEMA ═══ */
+.eco-grid{display:grid;grid-template-columns:1fr minmax(260px,340px);gap:clamp(30px,6vw,80px);align-items:center}
+.eco-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.eco-list li{padding:16px 20px;border-radius:18px;font-weight:800;display:flex;align-items:center;gap:14px;cursor:pointer;transition:background .3s,transform .3s;border:1px solid transparent}
+.eco-list li span{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:#fff;font-size:1rem}
+.eco-list li.on{background:var(--glass);border-color:#fff;transform:translateX(8px);box-shadow:var(--shadow)}
+.eco-list li.on span{background:var(--green)}
+.phone-stage{perspective:1200px;display:grid;place-items:center}
+.phone{width:min(300px,78vw);aspect-ratio:9/19;border-radius:46px;padding:12px;background:linear-gradient(145deg,#2a3256,#141a33);box-shadow:0 60px 100px -40px rgba(32,39,69,.7),inset 0 0 0 2px rgba(255,255,255,.08);transform:rotateY(-18deg) rotateX(8deg);transform-style:preserve-3d}
+.screen{position:relative;width:100%;height:100%;border-radius:36px;overflow:hidden;background:var(--bg)}
+.notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:34%;height:22px;border-radius:20px;background:#141a33;z-index:3}
+.scr{position:absolute;inset:0;padding:48px 18px 18px;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(20px) scale(.98);transition:opacity .5s,transform .5s}
+.scr.on{opacity:1;transform:none}
+.scr h4{font-size:1.05rem;font-weight:900}
+.mini-card{aspect-ratio:1.586;border-radius:16px;padding:14px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;font-weight:800}
+.mini-card.a{background:linear-gradient(135deg,#202745,#3a64c4)}
+.mini-card.b{background:linear-gradient(135deg,#6a2bd1,#d13b8a)}
+.mini-card small{opacity:.8;font-weight:700}
+.row{background:#fff;border-radius:14px;padding:12px;display:flex;justify-content:space-between;align-items:center;font-size:.82rem;font-weight:700;gap:8px}
+.row em{font-style:normal;color:#0d7a43;font-weight:900}
+.mapmini{height:120px;border-radius:14px;background:linear-gradient(135deg,#dfeaff,#eef7f1);position:relative;overflow:hidden}
+.mapmini i{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--green);box-shadow:0 0 0 6px rgba(62,238,146,.25)}
+.tele{flex:1;border-radius:18px;background:linear-gradient(160deg,#202745,#2b3a7a);display:grid;place-items:center;color:#fff;position:relative}
+.tele .pip{position:absolute;right:10px;bottom:10px;width:30%;aspect-ratio:3/4;border-radius:12px;background:var(--sky)}
+.tele .live{position:absolute;top:10px;left:10px;font-size:.7rem;font-weight:900;padding:4px 8px;border-radius:999px;background:var(--green);color:var(--navy)}
+/* ── FIM BLOCO ── */
+
+/* ═══ BLOCO: REDE ═══ */
+.rede-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center}
+.map{padding:20px;aspect-ratio:1.25}
+.map svg{width:100%;height:100%}
+.map .unit circle.core{fill:var(--green)}
+.map .unit circle.halo{fill:rgba(62,238,146,.25);transform-origin:center;transform-box:fill-box}
+.map .unit text{font-weight:900;font-size:15px;fill:var(--navy)}
+.stats{display:grid;gap:16px}
+.stat{padding:26px}
+.stat b{display:block;font-size:clamp(2.4rem,6vw,4rem);font-weight:900;letter-spacing:-.04em;line-height:1}
+.stat span{font-weight:700;color:var(--navy-70)}
+.units{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.units span{padding:6px 12px;border-radius:999px;background:#fff;font-weight:800;font-size:.85rem}
+/* ── FIM BLOCO ── */
+
+/* ═══ BLOCO: CTA E RODAPE ═══ */
+.cta{text-align:center}
+.cta-box{padding:clamp(36px,7vw,80px) var(--gut);overflow:hidden;position:relative}
+.cta .dimigo{width:min(220px,50vw);margin:0 auto 10px}
+.cta h2{font-size:clamp(2.6rem,8vw,6rem);font-weight:900;letter-spacing:-.04em;line-height:1;margin-bottom:20px}
+.cta p{margin:0 auto 30px}
+footer{padding:40px 0 60px;font-size:.85rem;color:var(--navy-70)}
+footer .wrap{display:flex;flex-direction:column;gap:14px}
+footer .logo{height:56px;width:auto}
+/* ── FIM BLOCO ── */
+
+/* ═══ BLOCO: RESPONSIVO ═══ */
+@media (max-width:980px){
+  .paths{grid-template-columns:1fr 1fr}
+  .sim,.cards,.eco-grid,.rede-grid{grid-template-columns:1fr}
+  .phone-stage{order:-1}
 }
+@media (max-width:620px){
+  :root{--gut:16px;--r:22px}
+  .paths{grid-template-columns:1fr}
+  .dimigo-grid{grid-template-columns:1fr;text-align:left}
+  .dimigo-grid .dimigo{width:150px}
+  .bubble::before{left:40px;top:-14px;transform:rotate(135deg)}
+  .nav .btn span.long{display:none}
+  .phone{transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+  .bubble .word{opacity:1}
+}
+/* ── FIM BLOCO ── */
+.hero-logo{width:min(440px,72vw);height:auto;display:block;margin:0 auto}.logo-img{height:64px;margin:-10px 0;width:auto;object-fit:contain}.plogo.logo-img{height:36px}.dimigo-img{object-fit:contain;height:auto}
+
+/* ═══ BLOCO: DIMIGO-GUIA ═══ */
+.navy{background:var(--navy);color:#fff;overflow:hidden;isolation:isolate}
+.navy::before{content:"";position:absolute;right:-6%;bottom:-12%;width:min(820px,90vw);aspect-ratio:360/269;background:url(assets/logo-dimplus-branco.svg) no-repeat center/contain;opacity:.06;z-index:-1}
+.navy .h2,.navy h2{color:#fff}
+.navy .lead,.navy p{color:rgba(255,255,255,.78)}
+.navy .eyebrow{color:rgba(255,255,255,.8)}
+.green-line{position:fixed;top:0;left:0;right:0;height:3px;background:var(--green);z-index:59}
+.sec-head{display:grid;grid-template-columns:1fr auto;gap:clamp(20px,4vw,56px);align-items:end;margin-bottom:clamp(24px,4vw,48px)}
+.dg{display:flex;flex-direction:column;align-items:center;gap:16px;width:clamp(170px,20vw,250px)}
+.dg-card{width:100%;aspect-ratio:1;border-radius:24px;overflow:hidden;background:#e6efff;box-shadow:0 30px 60px -24px rgba(32,39,69,.45),0 10px 24px -14px rgba(32,39,69,.25);animation:bob 4.2s ease-in-out infinite;transform-origin:50% 100%}
+.dg-card img{width:100%;height:100%;object-fit:cover;transition:opacity .45s}
+.dg-card.wide{aspect-ratio:16/9}
+.dg-bubble{position:relative;background:#fff;color:var(--navy);border-radius:20px;padding:14px 18px;font-weight:700;font-size:.98rem;line-height:1.35;text-align:center;box-shadow:0 18px 40px -18px rgba(32,39,69,.35);min-height:3.2em}
+.dg-bubble::before{content:"";position:absolute;top:-9px;left:50%;width:18px;height:18px;background:#fff;transform:translateX(-50%) rotate(45deg);border-radius:3px}
+.dg-bubble .caret{display:inline-block;width:2px;height:1em;background:var(--green-d);margin-left:2px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-1.2deg)}50%{transform:translateY(-10px) rotate(1.2deg)}}
+@keyframes blink{50%{opacity:0}}
+.intro-grid{display:grid;grid-template-columns:minmax(260px,440px) 1fr;gap:clamp(28px,6vw,96px);align-items:center}
+.intro-grid .dg{width:100%}
+.intro-grid .dg-bubble{font-size:clamp(1.05rem,1.8vw,1.3rem);padding:20px 26px}
+.intro-title{font-size:clamp(2.4rem,6vw,5rem);font-weight:900;letter-spacing:-.04em;line-height:1}
+.intro-title em{font-style:normal;color:var(--green)}
+.intro-list{list-style:none;display:grid;gap:14px;margin:28px 0 34px}
+.intro-list li{display:flex;gap:12px;align-items:center;font-weight:700;font-size:1.05rem;color:#fff}
+.intro-list li::before{content:"✓";flex:0 0 28px;height:28px;border-radius:50%;background:var(--green);color:var(--navy);display:grid;place-items:center;font-weight:900;font-size:.9rem}
+.btn-green.block{width:100%;justify-content:center;border-radius:16px;padding:20px}
+.cta.navy .cta-box{background:transparent;border:0;box-shadow:none;backdrop-filter:none}
+.cta .dg{margin:0 auto 26px}
+.cta .h2-em{font-style:normal;color:var(--green)}
+.tele img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--green)}
+@media (max-width:620px){
+  .sec-head{grid-template-columns:1fr}
+  .sec-head .dg{flex-direction:row-reverse;width:100%;align-items:center}
+  .sec-head .dg-card{width:120px;flex:0 0 120px}
+  .sec-head .dg-bubble{flex:1;text-align:left;font-size:.92rem}
+  .sec-head .dg-bubble::before{top:50%;left:auto;right:-8px;transform:translateY(-50%) rotate(45deg)}
+  .intro-grid{grid-template-columns:1fr}
+  .intro-grid .dg{flex-direction:column}
+}
+@media (prefers-reduced-motion:reduce){.dg-card{animation:none}}
+.nav.glass{background:rgba(255,255,255,.94);border-color:#fff}
+/* ── FIM BLOCO ── */
 </style>
 </head>
-<body>
-<!-- ═══ BLOCO: SWITCHER ═══ -->
-<button class="printbtn" onclick="window.print()" title="Imprimir / Salvar PDF (A4)">⎙ Salvar PDF</button>
+<body class="no-js">
+<div class="aura"></div>
+<div class="green-line"></div>
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
 
-<div class="stage">
+<svg width="0" height="0" class="defs" aria-hidden="true">
+  <defs>
+    <symbol id="logo" viewBox="0 0 168 48">
+      <text x="0" y="38" font-family="Nunito,sans-serif" font-weight="900" font-size="40" fill="currentColor" letter-spacing="-1.5">DIM</text>
+      <g transform="translate(108 6)" fill="none" stroke-linecap="round" stroke-width="7">
+        <path d="M18 2 C 12 12, 24 24, 18 34" stroke="#3EEE92"/>
+        <path d="M2 18 C 12 12, 24 24, 34 18" stroke="#ACD1FF"/>
+        <path d="M18 2 C 12 12, 24 24, 18 34" stroke="#3EEE92" stroke-dasharray="9 40" stroke-dashoffset="-14"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
 
-<!-- ═══ LAYOUT 5 — DASHBOARD + CARTÕES ═══ -->
-<section class="page active" id="L5" role="tabpanel">
-  <div class="l5-in">
-    <div class="l5-head">
+<header class="nav glass">
+  <img class="logo logo-img" src="assets/logo-dimplus-navy.svg" alt="DIM+ Saúde">
+</header>
+
+<main>
+  <!-- CENA 1 -->
+  <section class="hero" id="hero">
+    <canvas id="hero3d" aria-hidden="true"></canvas>
+    <div class="hero-copy" id="heroCopy">
+      <h1 class="hero-title hero-logo-wrap"><img class="hero-logo" src="assets/logo-dimplus-navy.svg" alt="DIM+ Saúde"></h1>
+      <p class="hero-tag">Saúde acessível para todos os momentos.</p>
+      <div class="chips"><span class="chip"><i></i>acesso facilitado</span><span class="chip sky"><i></i>cuidado integrado</span></div>
+      <a class="btn btn-primary" href="#dimigo">Descobrir <span aria-hidden="true">↓</span></a>
+    </div>
+    <div class="scroll-hint">ROLE PARA EXPLORAR</div>
+  </section>
+
+  <!-- CENA 2 -->
+  <section class="dimigo-sec navy" id="dimigo">
+    <div class="wrap intro-grid">
+      <figure class="dg reveal"><div class="dg-card"><img src="assets/pose-acenando.webp" alt="Dimigo" loading="lazy"></div><figcaption class="dg-bubble" data-type="Oi! Eu sou o Dimigo. Vou te mostrar quanto a sua saúde pode custar — e quanto ela pode economizar.">Oi! Eu sou o Dimigo. Vou te mostrar quanto a sua saúde pode custar — e quanto ela pode economizar.</figcaption></figure>
       <div>
-        <div class="eyebrow">Guia interno de benefícios</div>
-        <div class="l5-logo">DIM<i>+</i></div>
-      </div>
-      <div class="sub">Plus &amp; Sagrado<small>JUN · 2026</small></div>
-    </div>
-
-    <div class="l5-kpis">
-      <div class="kpi"><div class="v"><span class="ct" data-to="50">50</span><small>%</small></div><div class="lab">desconto em exames e consultas · Plus</div></div>
-      <div class="kpi"><div class="v"><span class="ct" data-to="70">70</span><small>%</small></div><div class="lab">desconto em farmácias · Plus</div></div>
-      <div class="kpi"><div class="v">até <span class="ct" data-to="46">46</span><small>%</small></div><div class="lab">economia em Raio-X vs Concorrente</div></div>
-      <div class="kpi gold"><div class="v"><span class="ct" data-to="30">30</span><small>+</small></div><div class="lab">especialidades na rede própria</div></div>
-    </div>
-
-    <div class="l5-cards">
-      <div class="card plus">
-        <div class="shine"></div>
-        <div class="brand">DIM<i>+</i></div>
-        <div class="kind">Plus · Porta de entrada</div>
-        <div class="chip"></div>
-        <div class="pr">R$ 79,90<small>/mês + adesão R$ 29,90</small></div>
-        <div class="num">•••• QUALQUER PESSOA</div>
-      </div>
-      <div class="card sag">
-        <div class="shine"></div>
-        <div class="brand">DIM<i>+</i></div>
-        <div class="kind">Sagrado · Exclusivo</div>
-        <div class="chip"></div>
-        <div class="pr">R$ 349,90<small>/mês · plano anual</small></div>
-        <div class="num">•••• SAGRADA FAMÍLIA</div>
-      </div>
-    </div>
-
-    <div class="l5-bens">
-      <div class="bcol plus"><div class="glow"></div>
-        <span class="tag">Porta de entrada</span>
-        <h3>DIM+ Plus</h3>
-        <div class="who">Para qualquer pessoa — contratação livre</div>
-        <ul>
-          <li>Até <b>50%</b> de desconto em exames e consultas</li>
-          <li>Até <b>70%</b> de desconto em farmácias</li>
-          <li>Clínico geral e pronto atendimento <b>ilimitados</b></li>
-          <li>Sem carência e sem reajuste · até <b>5 dependentes</b></li>
+        <span class="eyebrow reveal">Cartão multibenefícios da DIMEG</span>
+        <h2 class="intro-title reveal">Cuidar da família ficou <em>leve</em>.</h2>
+        <ul class="intro-list reveal">
+          <li>Clínico geral, pronto atendimento e telemedicina ilimitados</li>
+          <li>Até 4 dependentes inclusos</li>
+          <li>Clube de benefícios e desconto em farmácias</li>
+          <li>Rede própria DIMEG, sem carência</li>
         </ul>
-      </div>
-      <div class="bcol sag"><div class="glow"></div>
-        <span class="tag">Exclusivo Sagrada Família</span>
-        <h3>DIM+ Sagrado</h3>
-        <div class="who">Só para titulares do plano de saúde Sagrada Família</div>
-        <ul>
-          <li><b>Tudo do DIM+</b> · rede própria, 30+ especialidades</li>
-          <li>Até <b>3 dependentes</b> sem custo adicional</li>
-          <li><b>Exames anuais grátis</b> (só titular)<span class="free">Oftalmologia · Cardiologia + ECG · Bioimpedância</span></li>
-          <li>Sem reajuste (sinistralidade / faixa etária / ANS) · sem carência</li>
-        </ul>
+        <a class="btn btn-green block" href="#depara">Ver quanto eu economizo <span aria-hidden="true">↓</span></a>
       </div>
     </div>
+  </section>
 
-    <div class="l5-table">
-      <h4>Comparativo de preços <span>Concorrente × DIMEG × DIM+ · R$ · *vs Concorrente</span></h4>
-      <table>
-        <thead><tr><th>Procedimento</th><th>Concorrente</th><th>DIMEG</th><th>DIM+</th><th>Economia*</th></tr></thead>
-        <tbody>
-          <tr><td>Consulta Ortopedia</td><td class="fares mono">165</td><td class="mono">120</td><td class="dim">100</td><td class="econ">39%</td></tr>
-          <tr><td>Consulta Ginecologia</td><td class="fares mono">200</td><td class="mono">200</td><td class="dim">160</td><td class="econ">20%</td></tr>
-          <tr><td>Consulta Oftalmologia</td><td class="fares mono">140</td><td class="mono">79,90</td><td class="dim">49,90</td><td class="econ">64%</td></tr>
-          <tr><td>Consulta Cardiologia</td><td class="fares mono">200</td><td class="mono">120</td><td class="dim">100</td><td class="econ">50%</td></tr>
-          <tr><td>Consulta Endocrinologia</td><td class="fares mono">250</td><td class="mono">180</td><td class="dim">144</td><td class="econ">42%</td></tr>
-          <tr><td>Consulta Dermatologia</td><td class="fares mono">160</td><td class="mono">120</td><td class="dim">100</td><td class="econ">38%</td></tr>
-          <tr class="grp"><td>Ultrassom</td><td class="fares mono">200</td><td class="mono">130</td><td class="dim">a partir de R$100</td><td class="econ">50%</td></tr>
-          <tr class="grp"><td>Raio-X</td><td class="fares mono">90</td><td class="mono">75</td><td class="dim">a partir de R$40</td><td class="econ">56%</td></tr>
-        </tbody>
-      </table>
+  <!-- CENA 3 -->
+  <section id="depara">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="eyebrow reveal">De-para</span>
+      <h2 class="h2 reveal">Uma ida ao médico, <em>quatro caminhos</em>.</h2>
+      <p class="lead reveal">A mesma jornada de cuidado com o coração e o metabolismo, em quatro jeitos de pagar.</p></div><figure class="dg reveal" id=dgDepara><div class="dg-card"><img src="assets/pose-pensativo.webp" alt="Dimigo" loading="lazy"></div><figcaption class="dg-bubble" data-type="Mesma consulta, mesmo médico. Olha a diferença no fim da conta…">Mesma consulta, mesmo médico. Olha a diferença no fim da conta…</figcaption></figure></div>
+      <div class="journey reveal"><span>Cardiologia</span><span>Endocrinologia</span><span>ECG</span><span>Bioimpedância</span></div>
+      <div class="paths" id="paths"></div>
+      <details class="more glass reveal">
+        <summary>Veja mais preços</summary>
+        <div class="tbl-wrap"><table class="tbl" id="priceTable"></table></div>
+      </details>
     </div>
+  </section>
+
+  <!-- CENA 4 -->
+  <section id="simulador">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="eyebrow reveal">Simulador</span>
+      <h2 class="h2 reveal">Sua família <em>em 1 ano</em>.</h2>
+      <p class="lead reveal">Ajuste e veja o gasto anual no particular comparado ao DIM+ Básico Plus, já com mensalidades e adesão.</p></div><figure class="dg reveal" id=dgSim><div class="dg-card"><img src="assets/pose-prancheta.webp" alt="Dimigo" loading="lazy"></div><figcaption class="dg-bubble" data-type="Mexe nos números e eu faço a conta pra você!">Mexe nos números e eu faço a conta pra você!</figcaption></figure></div>
+      <div class="sim">
+        <div class="sim-in glass reveal">
+          <div class="field"><label for="inPessoas">Pessoas na família <output id="outPessoas">3</output></label><input type="range" id="inPessoas" min="1" max="5" value="3"><p class="hint">Titular + até 4 dependentes no mesmo plano.</p></div>
+          <div class="field"><label for="inCons">Consultas com especialista por pessoa/ano <output id="outCons">3</output></label><input type="range" id="inCons" min="0" max="12" value="3"></div>
+          <div class="field"><label for="inEx">Exames por pessoa/ano <output id="outEx">4</output></label><input type="range" id="inEx" min="0" max="20" value="4"></div>
+        </div>
+        <div class="sim-out glass reveal">
+          <div class="bar-row"><div class="lbl"><span>Particular</span><span id="valPart">R$ 0</span></div><div class="bar part"><i id="barPart"></i></div></div>
+          <div class="bar-row"><div class="lbl"><span>DIM+ Básico Plus</span><span id="valDim">R$ 0</span></div><div class="bar dim"><i id="barDim"></i></div></div>
+          <p class="breakdown" id="breakdown"></p>
+          <div class="save" id="save"><small id="saveLbl">Você economizaria</small><strong id="saveVal">R$ 0</strong><p id="saveMsg">por ano, e ainda com clínico geral ilimitado.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CENA 5 -->
+  <section id="planos">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="eyebrow reveal">Planos</span>
+      <h2 class="h2 reveal">Escolha o seu <em>cartão</em>.</h2></div><figure class="dg reveal"><div class="dg-card"><img src="assets/pose-cartao.webp" alt="Dimigo" loading="lazy"></div><figcaption class="dg-bubble" data-type="Os dois vêm com app, cartão farmácia e clube de descontos.">Os dois vêm com app, cartão farmácia e clube de descontos.</figcaption></figure></div>
+      <div class="cards" id="cards"></div>
+    </div>
+  </section>
+
+  <!-- CENA 6 -->
+  <section id="ecossistema">
+    <div class="wrap eco-grid">
+      <div>
+        <span class="eyebrow reveal">Ecossistema</span>
+        <h2 class="h2 reveal">Tudo no <em>seu bolso</em>.</h2>
+        <p class="lead reveal">Cartão digital, farmácia com desconto, clube de vantagens e médico por vídeo, num só app.</p>
+        <ul class="eco-list" id="ecoList"></ul>
+        <div class="sec-head"><figure class="dg reveal"><div class="dg-card"><img src="assets/pose-celular.webp" alt="Dimigo" loading="lazy"></div><figcaption class="dg-bubble" data-type="Tá tudo no app: cartão, farmácia, clube e médico por vídeo.">Tá tudo no app: cartão, farmácia, clube e médico por vídeo.</figcaption></figure></div>
+      </div>
+      <div class="phone-stage"><div class="phone" id="phone"><div class="screen" id="screen"><div class="notch"></div></div></div></div>
+    </div>
+  </section>
+
+  <!-- CENA 7 -->
+  <section id="rede">
+    <div class="wrap">
+      <div class="sec-head"><div><span class="eyebrow reveal">Rede própria DIMEG</span>
+      <h2 class="h2 reveal">Perto de você, <em>de verdade</em>.</h2></div><figure class="dg reveal"><div class="dg-card"><img src="assets/pose-casinha.webp" alt="Dimigo" loading="lazy"></div><figcaption class="dg-bubble" data-type="São 4 unidades na Grande SP Oeste te esperando.">São 4 unidades na Grande SP Oeste te esperando.</figcaption></figure></div>
+      <div class="rede-grid">
+        <div class="map glass reveal" id="map"></div>
+        <div class="stats">
+          <div class="stat glass reveal"><b data-count="100" data-prefix="+" data-suffix=" mil">+0</b><span>atendimentos por ano</span></div>
+          <div class="stat glass reveal"><b data-count="30" data-prefix="+" data-suffix="">+0</b><span>especialidades</span></div>
+          <div class="stat glass reveal"><b data-count="4" data-prefix="" data-suffix="">0</b><span>unidades na Grande SP Oeste</span><div class="units"><span>Osasco</span><span>Itapevi</span><span>Carapicuíba</span><span>Cajamar</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CENA 8 -->
+  <section class="cta navy" id="cta">
+    <div class="wrap">
+      <div class="cta-box glass reveal">
+        <figure class="dg reveal" id=dimigoCta><div class="dg-card"><img src="assets/pose-comemorando.webp" alt="Dimigo" loading="lazy"></div><figcaption class="dg-bubble" data-type="Bora ser DIM+? Em poucos minutos sua família toda entra!">Bora ser DIM+? Em poucos minutos sua família toda entra!</figcaption></figure>
+        <h2>Bora ser <em class="h2-em">DIM+</em>?</h2>
+        <p class="lead">Cadastro rápido, sem carência, com cuidado para toda a família.</p>
+        <a class="btn btn-green" href="https://queroserdimmais.dimmsaude.com.br">Quero ser DIM+ <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img class="logo logo-img" src="assets/logo-dimplus-navy.svg" alt="DIM+ Saúde">
+    <p>Valores DIM+ e particular: tabela DIMEG 2026. Referência de convênio: preços públicos de operadoras em SP, estimativa sujeita a alteração.</p>
+    <p>© DIMEG <span id="year">2026</span>. Saúde acessível para todos os momentos.</p>
   </div>
-  <footer class="l5-foot">
-    <span class="eyebrow">Material de uso interno · não distribuir</span>
-    <span class="eyebrow">*Economia vs Concorrente · <b>DIMEG</b></span>
-  </footer>
-</section>
+</footer>
 
-</div><!-- /stage -->
-
-<!-- ═══ BLOCO: JS — SCALE-TO-FIT + COUNTERS ═══ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script>
-(function(){
-  'use strict';
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var PAGE_W=794, PAGE_H=1123; // A4 em px a 96dpi
+// ═══ BLOCO: CONSTANTES ═══
+const JORNADA = [
+  { nome: 'Cardiologia', part: 130, dim: 100 },
+  { nome: 'Endocrinologia', part: 200, dim: 126 },
+  { nome: 'ECG', part: 90, dim: 52 },
+  { nome: 'Bioimpedância', part: 145, dim: 85 }
+];
+const TABELA = [
+  ['Clínico geral', 160, null], ['Oftalmologia', 85, 49.9], ['Cardiologia', 130, 100], ['Endocrinologia', 200, 126],
+  ['Ginecologia', 210, 126], ['Pediatria', 250, 126], ['Neurologia', 350, 245], ['Psiquiatria', 350, 245],
+  ['Dermatologia', 130, 100], ['Ortopedia', 130, 100], ['ECG', 90, 52], ['Bioimpedância', 145, 85]
+];
+const TICKET = { consPart: 200, consDim: 130, exPart: 118, exDim: 69 };
+const PLANO_PLUS = { mensal: 79.9, adesao: 29.9 };
+const PLANOS = [
+  { id: 'plus', nome: 'DIM+ Básico Plus', classe: 'plus', preco: 'R$ 79,90', unid: '/mês', sub: 'ou 12 meses em até 12x sem juros · adesão R$ 29,90', excl: '',
+    itens: ['Clínico geral, pronto atendimento e telemedicina ilimitados', 'Até 50% de desconto em consultas e exames', 'Titular + até 4 dependentes', 'Sem carência', 'Cartão farmácia Vidalink + clube de descontos'] },
+  { id: 'sag', nome: 'DIM+ Sagrado', classe: 'sag', preco: 'R$ 349,90', unid: '/ano', sub: 'cobrança única anual ou até 12x de R$ 29,16', excl: 'Exclusivo para titulares do plano Sagrada Família',
+    itens: ['Tudo do DIM+ Básico Plus', '2 consultas inclusas: cardiologia e endocrinologia', 'ECG + bioimpedância inclusos (titular)', 'Titular + até 3 dependentes', 'Sem reajuste e sem carência'] }
+];
+const TELAS = [
+  { id: 'cartao', icone: '💳', titulo: 'Cartão DIM+' },
+  { id: 'vidalink', icone: '💊', titulo: 'Cartão Vidalink' },
+  { id: 'farmacias', icone: '📍', titulo: 'Farmácias perto de você' },
+  { id: 'clube', icone: '🎁', titulo: 'Clube de descontos' },
+  { id: 'tele', icone: '🩺', titulo: 'Telemedicina' }
+];
+const UNIDADES = [
+  { nome: 'Cajamar', x: 300, y: 70 }, { nome: 'Itapevi', x: 90, y: 250 },
+  { nome: 'Carapicuíba', x: 230, y: 300 }, { nome: 'Osasco', x: 370, y: 230 }
+];
+const REDUZIR = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const MOBILE = window.matchMedia('(max-width: 760px)').matches;
+const N_PARTICULAS = MOBILE ? 900 : 2200;
+// ── FIM BLOCO ──
 
-  // ── escala a página para caber na janela ──
-  function scalePage(){
-    var pg=document.querySelector('.page');
-    if(!pg) return;
-    var pad=32;
-    var s=Math.min((window.innerWidth-pad)/PAGE_W,(window.innerHeight-pad)/PAGE_H,1);
-    pg.style.transform='scale('+s+')';
+// ═══ BLOCO: ESTADO ═══
+const estado = { pessoas: 3, cons: 3, ex: 4, tela: 0, telaTimer: null, heroProg: 0 };
+// ── FIM BLOCO ──
+
+// ═══ BLOCO: HELPERS ═══
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const brl = (v, dec = 0) => 'R$ ' + v.toLocaleString('pt-BR', { minimumFractionDigits: dec, maximumFractionDigits: dec });
+const temGsap = () => typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
+function contar(el, alvo, { prefix = 'R$ ', suffix = '', dur = 1.4 } = {}) {
+  if (REDUZIR || !temGsap()) { el.textContent = prefix + Math.round(alvo).toLocaleString('pt-BR') + suffix; return; }
+  const o = { v: 0 };
+  gsap.to(o, { v: alvo, duration: dur, ease: 'power3.out', onUpdate: () => { el.textContent = prefix + Math.round(o.v).toLocaleString('pt-BR') + suffix; } });
+}
+function pintarRange(inp) { const p = (inp.value - inp.min) / (inp.max - inp.min) * 100; inp.style.setProperty('--p', p + '%'); }
+// ── FIM BLOCO ──
+
+// ═══ BLOCO: NEGOCIO ═══
+function somaJornada(campo) { return JORNADA.reduce((s, j) => s + j[campo], 0); }
+function simular({ pessoas, cons, ex }) {
+  const part = pessoas * (cons * TICKET.consPart + ex * TICKET.exPart);
+  const usoDim = pessoas * (cons * TICKET.consDim + ex * TICKET.exDim);
+  const plano = PLANO_PLUS.mensal * 12 + PLANO_PLUS.adesao;
+  const dim = usoDim + plano;
+  return { part, dim, usoDim, plano, economia: part - dim };
+}
+function economiaPct(p, d) { return d == null ? 100 : Math.round((1 - d / p) * 100); }
+// ── FIM BLOCO ──
+
+// ═══ BLOCO: RENDER HERO 3D ═══
+function renderHero3D() {
+  const canvas = $('#hero3d');
+  if (!window.THREE || !canvas) return;
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: !MOBILE, alpha: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, MOBILE ? 1.5 : 2));
+  const scene = new THREE.Scene();
+  const cam = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
+  cam.position.z = 6;
+
+  // pontos-alvo: duas faixas onduladas formando a cruz entrelaçada
+  const N = N_PARTICULAS;
+  const pos = new Float32Array(N * 3), alvo = new Float32Array(N * 3), cor = new Float32Array(N * 3);
+  const verde = new THREE.Color('#3EEE92'), azul = new THREE.Color('#7fb6ff');
+  for (let i = 0; i < N; i++) {
+    const t = Math.random() * 2 - 1, larg = (Math.random() - .5) * .38, vert = i % 2 === 0;
+    const onda = Math.sin(t * Math.PI) * .35;
+    const a = vert ? [onda + larg, t * 2, Math.cos(t * 3) * .25] : [t * 2, onda + larg, -Math.cos(t * 3) * .25];
+    alvo.set(a, i * 3);
+    pos.set([(Math.random() - .5) * 14, (Math.random() - .5) * 10, (Math.random() - .5) * 10], i * 3);
+    const c = vert ? verde : azul; cor.set([c.r, c.g, c.b], i * 3);
   }
-  scalePage();
-  window.addEventListener('resize',scalePage);
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  geo.setAttribute('color', new THREE.BufferAttribute(cor, 3));
+  const mat = new THREE.PointsMaterial({ size: MOBILE ? .05 : .04, vertexColors: true, transparent: true, opacity: .95, depthWrite: false });
+  const pts = new THREE.Points(geo, mat);
+  scene.add(pts);
 
-  // ── contadores animados ──
-  function animateCounters(){
-    if(reduce){document.querySelectorAll('.ct').forEach(function(el){el.textContent=el.dataset.to;});return;}
-    document.querySelectorAll('.ct').forEach(function(el){
-      var to=parseInt(el.dataset.to,10)||0,cur=0,step=Math.max(1,Math.ceil(to/26));
-      el.textContent='0';
-      var t=setInterval(function(){cur=Math.min(cur+step,to);el.textContent=cur;if(cur>=to)clearInterval(t);},34);
+  function resize() { const w = canvas.clientWidth, h = canvas.clientHeight; renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); }
+  resize(); window.addEventListener('resize', resize);
+
+  let mix = REDUZIR ? 1 : 0, mx = 0, my = 0, visivel = true;
+  window.addEventListener('pointermove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; });
+  new IntersectionObserver(([en]) => { visivel = en.isIntersecting; }).observe(canvas);
+  if (!REDUZIR && temGsap()) gsap.to({}, { duration: 2.6, onUpdate() { mix = this.progress() ** .6; }, ease: 'power2.out' });
+  const inicio = new Float32Array(pos);
+
+  function frame(tm) {
+    requestAnimationFrame(frame);
+    if (!visivel) return;
+    const t = tm * .001, a = geo.attributes.position.array;
+    for (let i = 0; i < N * 3; i += 3) {
+      const j = REDUZIR ? 0 : Math.sin(t * 1.5 + i) * .015;
+      a[i] = inicio[i] + (alvo[i] - inicio[i]) * mix + j;
+      a[i + 1] = inicio[i + 1] + (alvo[i + 1] - inicio[i + 1]) * mix + j;
+      a[i + 2] = inicio[i + 2] + (alvo[i + 2] - inicio[i + 2]) * mix;
+    }
+    geo.attributes.position.needsUpdate = true;
+    const p = estado.heroProg;
+    pts.rotation.y = (REDUZIR ? 0 : t * .15) + mx * .5 + p * 1.2;
+    pts.rotation.x = my * .3;
+    cam.position.z = 3.2 + mix * 2.8 + p * 6;
+    pts.position.y = 1.2 * (1 - p) * 0 + .2;
+    renderer.render(scene, cam);
+  }
+  requestAnimationFrame(frame);
+}
+// ── FIM BLOCO ──
+
+// ═══ BLOCO: RENDER DEPARA ═══
+function renderPaths() {
+  const tPart = somaJornada('part'), tDim = somaJornada('dim');
+  const linhas = c => JORNADA.map(j => `<li><span>${j.nome}</span><b>${c(j)}</b></li>`).join('');
+  $('#paths').innerHTML = `
+    <article class="path glass reveal"><span class="tag">Sem plano</span><h3>Particular</h3><ul>${linhas(j => brl(j.part))}</ul><div class="trail"><i data-w="100"></i></div><div class="total" data-count="${tPart}">R$ 0</div></article>
+    <article class="path glass reveal"><span class="tag">Plano de saúde</span><h3>Convênio</h3><ul><li><span>Mensalidade</span><b>a partir de R$ 96</b></li><li><span>Coparticipação</span><b>por uso</b></li></ul><div class="trail"><i data-w="80"></i></div><p class="note">Coparticipação + mensalidade a partir de R$ 96/mês, que sobe com a idade (estimativa de mercado).</p></article>
+    <article class="path dim glass reveal"><span class="tag">Cartão</span><h3>DIM+</h3><ul>${linhas(j => brl(j.dim))}</ul><div class="trail"><i data-w="${Math.round(tDim / tPart * 100)}"></i></div><div class="total" data-count="${tDim}">R$ 0</div></article>
+    <article class="path sagrado glass reveal" id="pSag"><span class="tag">Sagrada Família</span><h3>DIM+ Sagrado</h3><ul>${linhas(() => 'incluso')}</ul><div class="trail"><i data-w="100"></i></div><div class="total" data-count="0">R$ 0</div><p class="note">Consultas e exames inclusos no plano.</p></article>`;
+}
+function renderTabela() {
+  const corpo = TABELA.map(([n, p, d]) => `<tr><td>${n}</td><td class="num">${brl(p, p % 1 ? 2 : 0)}</td><td class="num">${d == null ? '<b>incluso</b>' : brl(d, d % 1 ? 2 : 0)}</td><td><span class="pill">${economiaPct(p, d)}%</span></td></tr>`).join('');
+  $('#priceTable').innerHTML = `<thead><tr><th>Procedimento</th><th>Particular</th><th>DIM+</th><th>Economia</th></tr></thead><tbody>${corpo}</tbody>`;
+}
+// ── FIM BLOCO ──
+
+// ═══ BLOCO: RENDER SIMULADOR ═══
+function renderSim() {
+  const r = simular(estado);
+  const max = Math.max(r.part, r.dim, 1);
+  $('#outPessoas').textContent = estado.pessoas; $('#outCons').textContent = estado.cons; $('#outEx').textContent = estado.ex;
+  $('#valPart').textContent = brl(r.part); $('#valDim').textContent = brl(r.dim);
+  $('#barPart').style.width = (r.part / max * 100) + '%';
+  $('#barDim').style.width = (r.dim / max * 100) + '%';
+  $('#breakdown').textContent = `DIM+ = ${brl(r.usoDim)} em consultas e exames + ${brl(r.plano, 2)} de plano (12 × R$ 79,90 + adesão R$ 29,90).`;
+  if (r.economia > 0) {
+    $('#saveLbl').textContent = 'Você economizaria';
+    $('#saveVal').textContent = brl(r.economia) + ' por ano';
+    $('#saveMsg').textContent = 'E ainda com clínico geral, pronto atendimento e telemedicina ilimitados.';
+  } else {
+    $('#saveLbl').textContent = 'Seu ganho';
+    $('#saveVal').textContent = 'Cuidado sem limite';
+    $('#saveMsg').textContent = 'Com o DIM+ a família tem clínico geral, pronto atendimento e telemedicina ilimitados — cada consulta extra já entra no plano.';
+  }
+}
+// ── FIM BLOCO ──
+
+// ═══ BLOCO: RENDER CARTOES ═══
+function renderCards() {
+  $('#cards').innerHTML = PLANOS.map(p => `
+    <div class="card3d reveal" data-tilt>
+      <div class="plastic ${p.classe}"><div class="shine"></div>
+        <div class="ptop"><img class="plogo logo-img" src="assets/logo-dimplus-branco.svg" alt=""><div class="chipc"></div></div>
+        <div><div class="pnum">•••• •••• 2026</div><div class="pname">${p.nome}</div></div>
+      </div>
+      <div class="card-info glass">
+        ${p.excl ? `<span class="excl">${p.excl}</span>` : ''}
+        <div class="price">${p.preco}<small>${p.unid}</small></div>
+        <p class="price-sub">${p.sub}</p>
+        <ul class="feat">${p.itens.map(i => `<li>${i}</li>`).join('')}</ul>
+      </div>
+    </div>`).join('');
+}
+function ligarTilt() {
+  const cards = $$('[data-tilt]');
+  if (REDUZIR) return;
+  cards.forEach(c => {
+    const pl = $('.plastic', c);
+    c.addEventListener('pointermove', e => {
+      const b = c.getBoundingClientRect(), x = (e.clientX - b.left) / b.width, y = (e.clientY - b.top) / b.height;
+      c.style.transform = `rotateY(${(x - .5) * 16}deg) rotateX(${(.5 - y) * 12}deg)`;
+      pl.style.setProperty('--mx', x * 100 + '%'); pl.style.setProperty('--my', y * 100 + '%');
     });
+    c.addEventListener('pointerleave', () => { c.style.transform = ''; });
+  });
+  window.addEventListener('deviceorientation', e => {
+    if (e.gamma == null) return;
+    const gx = Math.max(-20, Math.min(20, e.gamma)), gy = Math.max(-20, Math.min(20, (e.beta || 0) - 40));
+    cards.forEach(c => { c.style.transform = `rotateY(${gx * .5}deg) rotateX(${-gy * .4}deg)`; });
+  });
+}
+// ── FIM BLOCO ──
+
+// ═══ BLOCO: RENDER ECOSSISTEMA ═══
+function telaHTML(id) {
+  switch (id) {
+    case 'cartao': return `<h4>Meu cartão</h4><div class="mini-card a"><span>DIM+ Saúde</span><span><small>Titular</small><br>Maria S.</span></div><div class="row">Dependentes<em>3 ativos</em></div><div class="row">Telemedicina<em>disponível</em></div>`;
+    case 'vidalink': return `<h4>Farmácia</h4><div class="mini-card b"><span>Vidalink</span><span><small>Cartão farmácia</small><br>•••• 4471</span></div><div class="row">Desconto em medicamentos<em>ativo</em></div>`;
+    case 'farmacias': return `<h4>Farmácias perto de você</h4><div class="mapmini"><i class="m1"></i><i class="m2"></i><i class="m3"></i></div><div class="row">Farmácia Centro<em>350 m</em></div><div class="row">Farmácia Avenida<em>1,2 km</em></div>`;
+    case 'clube': return `<h4>Clube de descontos</h4><div class="row">Academias<em>até 30%</em></div><div class="row">Ótica<em>até 25%</em></div><div class="row">Cursos<em>até 40%</em></div><div class="row">Pet<em>até 15%</em></div>`;
+    default: return `<h4>Telemedicina</h4><div class="tele"><span class="live">AO VIVO</span><img src="assets/dimigo-clinica.webp" alt=""><div class="pip"></div></div><div class="row">Clínico geral<em>ilimitado</em></div>`;
   }
-  animateCounters();
-})();
+}
+function renderEco() {
+  $('#ecoList').innerHTML = TELAS.map((t, i) => `<li data-i="${i}"><span>${t.icone}</span>${t.titulo}</li>`).join('');
+  $('#screen').insertAdjacentHTML('beforeend', TELAS.map(t => `<div class="scr" data-id="${t.id}">${telaHTML(t.id)}</div>`).join(''));
+  const pos = [[30, 30], [60, 60], [75, 25]];
+  $$('.mapmini i').forEach((el, i) => { el.style.left = pos[i][0] + '%'; el.style.top = pos[i][1] + '%'; });
+  $$('#ecoList li').forEach(li => li.addEventListener('click', () => { mostrarTela(+li.dataset.i); reiniciarCiclo(); }));
+  mostrarTela(0); reiniciarCiclo();
+}
+function mostrarTela(i) {
+  estado.tela = i;
+  $$('#ecoList li').forEach((li, k) => li.classList.toggle('on', k === i));
+  $$('#screen .scr').forEach((s, k) => s.classList.toggle('on', k === i));
+}
+function reiniciarCiclo() {
+  clearInterval(estado.telaTimer);
+  if (REDUZIR) return;
+  estado.telaTimer = setInterval(() => mostrarTela((estado.tela + 1) % TELAS.length), 3200);
+}
+// ── FIM BLOCO ──
+
+// ═══ BLOCO: RENDER REDE ═══
+function renderMapa() {
+  const linhas = UNIDADES.map((u, i) => UNIDADES.slice(i + 1).map(v => `<line x1="${u.x}" y1="${u.y}" x2="${v.x}" y2="${v.y}" stroke="rgba(32,39,69,.12)" stroke-width="1.5" stroke-dasharray="4 6"/>`).join('')).join('');
+  const pts = UNIDADES.map(u => `<g class="unit"><circle class="halo" cx="${u.x}" cy="${u.y}" r="22"/><circle class="core" cx="${u.x}" cy="${u.y}" r="9"/><text x="${u.x + 16}" y="${u.y - 14}">${u.nome}</text></g>`).join('');
+  $('#map').innerHTML = `<svg viewBox="0 0 480 380" role="img" aria-label="Mapa estilizado das unidades DIMEG">
+    <defs><radialGradient id="gMap" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#ACD1FF" stop-opacity=".55"/><stop offset="1" stop-color="#ACD1FF" stop-opacity="0"/></radialGradient></defs>
+    <path d="M40 180 C 60 60, 220 20, 340 40 S 470 160, 440 260 S 300 370, 180 350 S 20 300, 40 180Z" fill="url(#gMap)" stroke="rgba(32,39,69,.15)" stroke-width="1.5"/>
+    <path d="M60 300 C 160 260, 260 280, 460 200" stroke="rgba(90,168,255,.5)" stroke-width="6" fill="none" stroke-linecap="round"/>
+    ${linhas}${pts}</svg>`;
+}
+// ── FIM BLOCO ──
+
+// ═══ BLOCO: RENDER SCROLL ═══
+function renderScroll() {
+  if (!temGsap()) { $$('.reveal').forEach(e => { e.style.opacity = 1; e.style.transform = 'none'; }); acenderDepara(); return; }
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.to('#progress', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: true } });
+  if (REDUZIR) { $$('.reveal').forEach(e => { e.style.opacity = 1; e.style.transform = 'none'; }); acenderDepara(); contarStats(); $$('.bubble .word').forEach(w => w.style.opacity = 1); return; }
+
+  ScrollTrigger.create({ trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true, onUpdate: s => { estado.heroProg = s.progress; } });
+  gsap.to('#heroCopy', { y: -120, opacity: 0, scale: .94, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true } });
+  gsap.from('#heroCopy > *', { y: 40, opacity: 0, stagger: .12, duration: 1.1, delay: .9, ease: 'power3.out' });
+
+  $$('.reveal').forEach(el => gsap.to(el, { opacity: 1, y: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } }));
+
+  
+
+  ScrollTrigger.create({ trigger: '#paths', start: 'top 70%', once: true, onEnter: acenderDepara });
+  gsap.fromTo('.phone', { rotateY: -30, rotateX: 14 }, { rotateY: MOBILE ? 0 : 12, rotateX: 0, ease: 'none', scrollTrigger: { trigger: '#ecossistema', start: 'top bottom', end: 'bottom top', scrub: true } });
+  gsap.to('.map .halo', { scale: 1.6, opacity: 0, duration: 1.8, repeat: -1, stagger: .4, ease: 'power1.out' });
+  ScrollTrigger.create({ trigger: '#rede', start: 'top 70%', once: true, onEnter: contarStats });
+  gsap.fromTo('#dimigoCta', { y: 60, rotate: -10 }, { y: 0, rotate: 0, ease: 'back.out(2)', duration: 1.2, scrollTrigger: { trigger: '#cta', start: 'top 70%' } });
+}
+function acenderDepara() {
+  $$('#paths .trail i').forEach((i, k) => {
+    if (temGsap() && !REDUZIR) gsap.to(i, { width: i.dataset.w + '%', duration: 1.4, delay: k * .15, ease: 'power3.out' });
+    else i.style.width = i.dataset.w + '%';
+  });
+  $$('#paths .total').forEach(el => contar(el, +el.dataset.count));
+  setTimeout(() => $('#pSag').classList.add('lit'), REDUZIR ? 0 : 1300);
+}
+function contarStats() { $$('.stat b').forEach(b => contar(b, +b.dataset.count, { prefix: b.dataset.prefix, suffix: b.dataset.suffix, dur: 2 })); }
+// ── FIM BLOCO ──
+
+// ═══ BLOCO: INIT ═══
+function init() {
+  document.body.classList.remove('no-js');
+  if (REDUZIR) document.body.classList.add('no-motion');
+  $('#year').textContent = new Date().getFullYear();
+  renderPaths(); renderTabela(); renderCards(); renderEco(); renderMapa();
+  [['#inPessoas', 'pessoas'], ['#inCons', 'cons'], ['#inEx', 'ex']].forEach(([s, k]) => {
+    const inp = $(s); pintarRange(inp);
+    inp.addEventListener('input', () => { estado[k] = +inp.value; pintarRange(inp); renderSim(); });
+  });
+  renderSim(); ligarTilt(); renderHero3D(); renderScroll();
+}
+document.addEventListener('DOMContentLoaded', init);
+// ── FIM BLOCO ──
+
+// ═══ BLOCO: DIMIGO-FALAS ═══
+function digitar(el){
+  if(el.dataset.done)return; el.dataset.done='1';
+  const txt=el.dataset.type; el.textContent='';
+  const caret=document.createElement('span'); caret.className='caret';
+  let i=0; const t=setInterval(()=>{ el.textContent=txt.slice(0,++i); el.appendChild(caret); if(i>=txt.length){clearInterval(t); setTimeout(()=>caret.remove(),1500);} },22);
+}
+function trocarPose(fig,pose,txt){
+  const img=fig.querySelector('img'), b=fig.querySelector('.dg-bubble');
+  if(img.dataset.swap===pose)return; img.dataset.swap=pose;
+  img.style.opacity=0; setTimeout(()=>{img.src='assets/'+pose; img.style.opacity=1;},400);
+  if(txt){b.dataset.type=txt; delete b.dataset.done; digitar(b);}
+}
+function iniciarDimigos(){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ digitar(e.target); io.unobserve(e.target);} }),{threshold:.6});
+  document.querySelectorAll('.dg-bubble').forEach(b=>{ if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return; io.observe(b); });
+  const sag=document.getElementById('pSag'), fig=document.getElementById('dgDepara');
+  if(sag&&fig) new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) trocarPose(fig,'pose-joinha.webp','No Sagrado essa jornada sai por R$ 0. Joinha, né?'); }),{threshold:.5}).observe(sag);
+  const sv=document.getElementById('saveVal'), fs=document.getElementById('dgSim');
+  if(sv&&fs) new MutationObserver(()=>{ const pos=!/-|−/.test(sv.textContent)&&sv.textContent!=='R$ 0'; trocarPose(fs, pos?'pose-comemorando.webp':'pose-prancheta.webp'); }).observe(sv,{childList:true,characterData:true,subtree:true});
+}
+document.addEventListener('DOMContentLoaded',iniciarDimigos);
+// ── FIM BLOCO ──
 </script>
 </body>
 </html>
